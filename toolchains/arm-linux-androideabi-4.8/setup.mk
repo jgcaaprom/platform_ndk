@@ -39,7 +39,7 @@ ifneq ($(filter $(TARGET_ARCH_ABI), armeabi-v7a armeabi-v7a-hard),)
     TARGET_CFLAGS += -march=armv7-a \
                      -mfpu=neon-vfpv4
     TARGET_LDFLAGS += -march=armv7-a \
-                     -Wl,--fix-cortex-a8
+                     -Wl,--no-fix-cortex-a8
 ifeq ($(TARGET_ARCH_ABI),armeabi-v7a)
     TARGET_CFLAGS += -mfloat-abi=softfp
 else
@@ -67,7 +67,7 @@ TARGET_arm_release_CFLAGS :=  -marm \
                               -funswitch-loops     \
                               -finline-limit=300
 
-TARGET_thumb_release_CFLAGS := -marm \
+TARGET_thumb_release_CFLAGS := -mthumb \
                                -Os \
                                -DNDEBUG \
                                -fomit-frame-pointer \
